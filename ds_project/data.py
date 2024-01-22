@@ -34,23 +34,16 @@ def data():
     # Create two columns
     data_types_col, missing_values_col = st.columns([2, 1])
 
-    # Column for Data Types
     with data_types_col:
         st.write('### Data Types of Columns')
         st.write(goldDF.dtypes)
         st.write('### Summary Statistics')
         st.write(goldDF.describe())
         
-    # Column for Missing Values
     with missing_values_col:
         st.write('### Missing Values')
         st.write(goldDF.isnull().sum())
-
-        # Handling missing values
         st.write('#### Handling Missing Values')
         st.write('Before handling missing values:', goldDF.shape)
         goldDF = goldDF.dropna()
         st.write('After handling missing values:', goldDF.shape)
-    
-    st.markdown('## Exploratory Data Analysis (EDA)')
-
